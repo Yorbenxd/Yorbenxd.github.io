@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yorben | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo">Yorben</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/projects.html">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <div class="container hero-content">
+      <p class="hero-greeting">Hi, I'm</p>
+      <h1 class="hero-name">Yorben</h1>
+      <p class="hero-tagline">Developer &amp; Creative Thinker</p>
+      <div class="hero-actions">
+        <a href="pages/projects.html" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Skills Section ===== -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <span class="skill-icon">💻</span>
+          <h3>Frontend</h3>
+          <p>HTML, CSS, JavaScript</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">⚙️</span>
+          <h3>Backend</h3>
+          <p>Node.js, Python, SQL</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">🛠️</span>
+          <h3>Tools</h3>
+          <p>Git, VS Code, Figma</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-icon">☁️</span>
+          <h3>Deployment</h3>
+          <p>GitHub Pages, Netlify</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Featured Projects (preview) ===== -->
+  <section class="section projects-preview" id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-thumb placeholder-thumb"></div>
+          <div class="project-info">
+            <h3>Project Alpha</h3>
+            <p>A short description of what this project does and the technologies used.</p>
+            <a href="pages/projects.html" class="btn btn-sm">Learn More</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-thumb placeholder-thumb"></div>
+          <div class="project-info">
+            <h3>Project Beta</h3>
+            <p>A short description of what this project does and the technologies used.</p>
+            <a href="pages/projects.html" class="btn btn-sm">Learn More</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-thumb placeholder-thumb"></div>
+          <div class="project-info">
+            <h3>Project Gamma</h3>
+            <p>A short description of what this project does and the technologies used.</p>
+            <a href="pages/projects.html" class="btn btn-sm">Learn More</a>
+          </div>
+        </article>
+      </div>
+      <div class="center-link">
+        <a href="pages/projects.html" class="btn btn-primary">All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact Section ===== -->
+  <section class="section contact-section" id="contact">
+    <div class="container contact-wrapper">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="contact-intro">Have a question or want to work together? Drop me a message!</p>
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Yorben. All rights reserved.</p>
+      <ul class="social-links">
+        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
