@@ -20,37 +20,79 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-// --- Mobile nav toggle ---
-const navToggle = qs('.nav-toggle');
-const mainNav   = qs('.main-nav', document);
-
-if (navToggle && mainNav) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = mainNav.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  // Close nav when a link inside it is clicked
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mainNav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
+// --- Navbar include & initialization ---
+function loadNavbar() {
+  const base = window.location.pathname.includes('/pages/') ? '../' : '';
+  const url = base + 'partials/navbar.html';
+  return fetch(url)
+    .then(res => {
+      if (!res.ok) throw new Error('Failed to load navbar');
+      return res.text();
+    })
+    .then(html => {
+      const container = document.getElementById('navbar-include');
+      if (container) container.innerHTML = html;
+    })
+    .catch(() => {
+      // silently ignore failure
     });
-  });
 }
 
-// --- Highlight active nav link based on current page ---
-(function setActiveNav() {
+function initNavbar() {
+  const navToggle = qs('.nav-toggle');
+  const mainNav   = qs('.main-nav', document);
+
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close nav when a link inside it is clicked
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Highlight active nav link based on current page
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.main-nav a').forEach(link => {
-    const linkPath = link.getAttribute('href').split('/').pop();
+    const href = link.getAttribute('href') || '';
+    const linkPath = href.split('/').pop();
     if (linkPath === currentPath) {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
     }
   });
-})();
+}
+
+loadNavbar().then(initNavbar);
+// --- Footer include ---
+function loadFooter() {
+  const base = window.location.pathname.includes('/pages/') ? '../' : '';
+  const url = base + 'partials/footer.html';
+  return fetch(url)
+    .then(res => {
+      if (!res.ok) throw new Error('Failed to load footer');
+      return res.text();
+    })
+    .then(html => {
+      const container = document.getElementById('footer-include');
+      if (container) container.innerHTML = html;
+    })
+    .catch(() => {
+      // ignore
+    });
+}
+
+loadFooter().then(() => {
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
 
 // --- Contact form (client-side demo) ---
 const contactForm = document.getElementById('contact-form');
@@ -111,7 +153,7 @@ function isValidEmail(email) {
 
 // --- Scroll-reveal animation ---
 (function initScrollReveal() {
-  const targets = document.querySelectorAll('.skill-card, .project-card, .timeline-item');
+  const targets = document.querySelectorAll('.skill-card, .project-card, .timeline-item, .activity-card');
 
   if (!targets.length || !('IntersectionObserver' in window)) return;
 
