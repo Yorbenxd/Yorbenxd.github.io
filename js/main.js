@@ -124,9 +124,37 @@ if (contactForm) {
       return;
     }
 
-    // Simulate a successful submission (replace with real API call)
-    showFeedback(feedback, 'success', `Thanks, ${name}! Your message has been sent.`);
-    contactForm.reset();
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.textContent : '';
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+    }
+
+    fetch(contactForm.action, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+      },
+      body: new FormData(contactForm),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Submission failed');
+        }
+        showFeedback(feedback, 'success', `Bedankt, ${name}! Je bericht is verstuurd.`);
+        contactForm.reset();
+      })
+      .catch(() => {
+        showFeedback(feedback, 'error', 'Verzenden mislukt. Probeer het later opnieuw.');
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
   });
 }
 
