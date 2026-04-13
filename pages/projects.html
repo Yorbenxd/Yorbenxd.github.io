@@ -7,7 +7,13 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" type="image/jpeg" href="/assets/images/istockphoto-1335407682-612x612.jpg?v=2" />
 </head>
-<body>
+<body class="projects-page">
+
+  <div class="projects-bg" aria-hidden="true">
+    <span class="projects-bg-orb orb-a"></span>
+    <span class="projects-bg-orb orb-b"></span>
+    <span class="projects-bg-orb orb-c"></span>
+  </div>
 
   <!-- ===== Navigation ===== -->
   <header class="site-header">
@@ -18,7 +24,8 @@
   <section class="projects-page-hero section">
     <div class="container">
       <h1>My Projects</h1>
-      <p>A collection of things I've built — personal projects, experiments, and open-source work.</p>
+      <p>Een collectie van dingen die ik gemaakt heb — persoonlijke projecten, experimenten en groepswerken.</p>
+
     </div>
   </section>
 
@@ -26,83 +33,74 @@
   <main class="container">
     <div class="projects-full-grid">
 
-      <!-- Project 1 -->
+      <!-- Project 1: Uwimmo -->
       <article class="project-card">
-        <div class="project-thumb placeholder-thumb"></div>
+        <div class="project-thumb" style="background-image: url('/assets/images/uwimmo.png'); background-size: cover; background-position: center;"></div>
         <div class="project-info">
-          <h3>Project Alpha</h3>
+          <h3>Uwimmo</h3>
           <p>
-            A full-stack web application built with Node.js and React. Features
-            user authentication, a REST API, and a responsive UI.
+            Een vastgoed platform gebouwd met Next.js, Vercel en Supabase. Gebruikers kunnen inloggen,
+            woning zoekerijen aanmaken, abonnementen afsluiten via Stripe en zoekerijen publiceren.
+            Inclusief een roadmap voor Meta Ads-integratie om code vastgoed te promoten.
           </p>
           <div>
-            <span class="tag">React</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">MongoDB</span>
-          </div>
-          <div style="margin-top:1rem; display:flex; gap:0.75rem;">
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-sm">GitHub</a>
-            <a href="#" class="btn btn-outline btn-sm">Live Demo</a>
+            <span class="tag">Next.js</span>
+            <span class="tag">Stripe</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Vercel</span>
           </div>
         </div>
       </article>
 
-      <!-- Project 2 -->
+      <!-- Project 2: Blindfolded -->
       <article class="project-card">
-        <div class="project-thumb placeholder-thumb"></div>
+        <div class="project-thumb" style="background-image: url('/assets/images/blindfolded_logo.png'); background-size: cover; background-position: center;"></div>
         <div class="project-info">
-          <h3>Project Beta</h3>
+          <h3>Blindfolded — Vrije Tijd Project</h3>
           <p>
-            A CLI tool written in Python that automates repetitive development
-            tasks, saving hours of manual work per week.
+            Een unieke datingapp in Flutter en Firebase gericht op persoonlijkheid zonder foto's.
+            Features: swipe-systeem, realtime chatten met matches, uitgebreide profielopties en
+            dagelijkse inspirerende quotes via externe API.
           </p>
           <div>
-            <span class="tag">Python</span>
-            <span class="tag">CLI</span>
-            <span class="tag">Automation</span>
-          </div>
-          <div style="margin-top:1rem; display:flex; gap:0.75rem;">
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-sm">GitHub</a>
+            <span class="tag">Flutter</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Realtime Chat</span>
+            <span class="tag">Dating App</span>
           </div>
         </div>
       </article>
 
-      <!-- Project 3 -->
+      <!-- Project 3: Mosselsouper -->
       <article class="project-card">
-        <div class="project-thumb placeholder-thumb"></div>
+        <div class="project-thumb" style="background-image: url('/assets/images/mosselsouper.png'); background-size: cover; background-position: center;"></div>
         <div class="project-info">
-          <h3>Project Gamma</h3>
+          <h3>Mosselsouper — Groepswerk Chiro</h3>
           <p>
-            A responsive landing page template built with pure HTML and CSS,
-            optimised for performance and accessibility.
+            Een bestel-website voor chiro Wilduraantjes in Java en Vue.js. Rol-gebaseerd inlogsysteem voor
+            kassa, inschrijvingen, bestellingbeheer in de zaal en keukenmanagement. Betalingen via Mollie.
           </p>
           <div>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">Accessibility</span>
-          </div>
-          <div style="margin-top:1rem; display:flex; gap:0.75rem;">
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-sm">GitHub</a>
-            <a href="#" class="btn btn-outline btn-sm">Live Demo</a>
+            <span class="tag">Java</span>
+            <span class="tag">Vue.js</span>
+            <span class="tag">Mollie</span>
+            <span class="tag">Event Management</span>
           </div>
         </div>
       </article>
 
-      <!-- Project 4 -->
-      <article class="project-card">
-        <div class="project-thumb placeholder-thumb"></div>
+      <!-- Project 4: More Coming Soon -->
+      <article class="project-card project-card-soon">
+        <div class="project-thumb placeholder-thumb project-thumb-soon"></div>
         <div class="project-info">
-          <h3>Project Delta</h3>
+          <h3>More Coming Soon</h3>
           <p>
-            An open-source browser extension that enhances productivity by
-            adding custom keyboard shortcuts and focus modes.
+            Ik ben volop bezig met nieuwe builds en experimenten. Binnenkort komen hier extra projecten bij.
           </p>
           <div>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Browser Extension</span>
-          </div>
-          <div style="margin-top:1rem; display:flex; gap:0.75rem;">
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-sm">GitHub</a>
+            <span class="tag">In Progress</span>
+            <span class="tag">New Ideas</span>
+            <span class="tag">Stay Tuned</span>
           </div>
         </div>
       </article>

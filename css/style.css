@@ -676,12 +676,27 @@ ul {
   gap: 1.75rem;
 }
 
+.project-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .project-card {
   background: var(--clr-surface);
   border: 1px solid var(--clr-border);
   border-radius: var(--radius);
   overflow: hidden;
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card-link:hover .project-card {
+  border-color: var(--clr-accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
 }
 
 .project-card:hover {
@@ -694,15 +709,21 @@ ul {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .placeholder-thumb {
-  background: linear-gradient(135deg, var(--clr-border) 0%, var(--clr-accent) 100%);
+  background: linear-gradient(135deg, var(--clr-border) 0%, var(--clr-accent) 100%) !important;
   opacity: 0.4;
 }
 
 .project-info {
   padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project-info h3 {
@@ -716,6 +737,10 @@ ul {
   font-size: 0.9rem;
   color: var(--clr-muted);
   margin-bottom: 1rem;
+}
+
+.project-info > div {
+  margin-top: auto;
 }
 
 /* Tags (used in projects page) */
@@ -948,11 +973,83 @@ ul {
   margin: 0.75rem auto 0;
 }
 
+.projects-page {
+  position: relative;
+  overflow-x: clip;
+}
+
+.projects-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(108, 99, 255, 0.22), transparent 36%),
+    radial-gradient(circle at 86% 22%, rgba(61, 207, 255, 0.14), transparent 34%),
+    radial-gradient(circle at 50% 82%, rgba(91, 255, 177, 0.1), transparent 38%);
+}
+
+.projects-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.45;
+  animation: projectsOrbFloat 16s ease-in-out infinite alternate;
+}
+
+.projects-bg-orb.orb-a {
+  width: 240px;
+  height: 240px;
+  top: 16%;
+  left: -40px;
+  background: radial-gradient(circle at 35% 35%, rgba(108, 99, 255, 0.55), rgba(108, 99, 255, 0.04) 70%);
+}
+
+.projects-bg-orb.orb-b {
+  width: 200px;
+  height: 200px;
+  top: 52%;
+  right: -36px;
+  background: radial-gradient(circle at 35% 35%, rgba(61, 207, 255, 0.5), rgba(61, 207, 255, 0.05) 72%);
+  animation-delay: 1.4s;
+}
+
+.projects-bg-orb.orb-c {
+  width: 220px;
+  height: 220px;
+  bottom: 8%;
+  left: 36%;
+  background: radial-gradient(circle at 35% 35%, rgba(91, 255, 177, 0.45), rgba(91, 255, 177, 0.04) 74%);
+  animation-delay: 2.8s;
+}
+
+@keyframes projectsOrbFloat {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) scale(1.04);
+  }
+  100% {
+    transform: translateY(14px) scale(0.98);
+  }
+}
+
 .projects-full-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.75rem;
   padding-bottom: 5rem;
+}
+
+.project-card-soon {
+  border-style: dashed;
+  border-color: rgba(108, 99, 255, 0.45);
+}
+
+.project-thumb-soon {
+  background: linear-gradient(130deg, rgba(108, 99, 255, 0.28), rgba(61, 207, 255, 0.24), rgba(91, 255, 177, 0.18)) !important;
+  opacity: 0.85;
 }
 
 /* =============================================
