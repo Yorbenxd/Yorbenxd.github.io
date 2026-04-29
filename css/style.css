@@ -890,11 +890,17 @@ ul {
 }
 
 .avatar-placeholder {
-  background: linear-gradient(135deg, var(--clr-border), var(--clr-accent));
-  opacity: 0.5;
   border-radius: var(--radius);
   width: 100%;
   aspect-ratio: 1;
+  opacity: 1;
+  background: none !important;
+}
+
+img.avatar-placeholder {
+  opacity: 1;
+  background: none !important;
+  object-fit: cover;
 }
 
 .about-text h2 {
